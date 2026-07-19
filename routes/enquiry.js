@@ -1,15 +1,7 @@
 const express = require('express');
-const nodemailer = require('nodemailer');
+const transporter = require('./mailer');
 
 const router = express.Router();
-
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
-  }
-});
 
 router.post('/', async (req, res) => {
   const { name, phone, email, message } = req.body;
