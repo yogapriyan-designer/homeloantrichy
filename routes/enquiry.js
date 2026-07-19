@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
   try {
     await transporter.sendMail({
       from: `"Home Loan Trichy Website" <${process.env.EMAIL_USER}>`,
-      to: 'rajibalayoga@gmail.com',
+      to: 'ganesh812sri@gmail.com',
       replyTo: email || undefined,
       subject: `New Enquiry from ${name}`,
       text: `
