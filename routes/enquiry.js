@@ -16,7 +16,7 @@ router.post('/', (req, res) => {
   // Send the notification email in the background
   transporter.sendMail({
     from: `"Home Loan Trichy Website" <${process.env.EMAIL_USER}>`,
-    to: 'ganesh812sri@gmail.com',
+  to: 'rajibalayoga@gmail.com',
     replyTo: email || undefined,
     subject: `New Enquiry from ${name}`,
     text: `
