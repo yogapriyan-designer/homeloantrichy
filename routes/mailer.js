@@ -1,14 +1,14 @@
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
-  },
-  connectionTimeout: 10000,  // 10s to connect
-  greetingTimeout: 10000,
-  socketTimeout: 10000
-});
-
-module.exports = transporter;
+module.exports = {
+  sendMail: async ({ from, to, subject, text, replyTo }) => {
+    return resend.emails.send({
+      from: 'Home Loan Trichy <onboarding@resend.dev>',
+      to,
+      subject,
+      text,
+      reply_to: replyTo
+    });
+  }
+};
